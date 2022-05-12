@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>PREDICTION MODEL</title>
+</head>
+<body>
+
+    <h1> Prediction Model</h1>
+    <h2>Thanks for visiting our website for cross-validation of the model</h2>
+    <div class="row">
+        <form class="form-horizontal" name="data"
+        method='POST' onsubmit="return terify();" action="/">
+          <div>1.Please choose the layer you want to grow:
+            <input type="radio" name="data1" id="data1" value="GaAs">GaAs layer
+            <input type="radio" name="data1" id="data1" value="AlAs"> AlAs layer
+            <input type="radio" name="data1" id="data1" value="AlGaAs ">AlGaAs layer
+            <span class="hidalert"></span>
+          </div>
+          <div>2.Please select any intended thickness layer :
+            <input type="text" name="data2" id="data2" onchange="textemp(this);"> (nm)
+            <span class="hidalert"> .*Integer and except  0 and decimals!</span>
+          </div>
+          <div>3.Please select the LT layer thickness 
+            <select name="data3" id="data3" onchange="selectemp(this);"><option value="" style="display: none;" disabled="" selected="">please choose</option><option value="0">0 nm</option><option value="100">100 nm</option><option value="200">200 nm</option></select>
+            <span class="hidalert">*Please choose one!</span>
+          </div>
+          <div>4.Please select Arsenic Pressure 
+            <select name="data4" id="data4" onchange="selectemp(this);"><option value="" style="display: none;" disabled="" selected="">please choose</option><option value="3e-6">3e-6</option><option value="4.1e-6">4.1e-6</option><option value="6e-6">6e-6</option><option value="9e-6">9e-6</option><option value="1e-5">1e-5</option></select>
+            <span class="hidalert">*Please choose one!</span>
+          </div>
+          <div>5.Please choose the AT:
+            <select name="data5" id="data5" onchange="selectemp(this);"><option value="" style="display: none;" disabled="" selected="">please choose</option><option value="400">800</option><option value="600">750</option></select>
+            <span class="hidalert">*Please choose one!</span>
+          </div>
+          <div>6.Please select the GT:
+            <select name="data6" id="data6" onchange="selectemp(this);"><option value="" style="display: none;" disabled="" selected="">please choose</option><option value="650">650</option><option value="675">675</option><option value="700">700</option></select>
+            <span class="hidalert">*Please choose one!</span>
+          </div>
+          <div>7.Please select the Annealing time:
+            <select name="data7" id="data7" onchange="selectemp(this);"><option value="" style="display: none;" disabled="" selected="">please choose</option><option value="90">90 sec</option><option value="180">180 sec</option><option value="240">240 sec</option><option value="600">600 sec</option></select>
+            <span class="hidalert">*Please choose one!</span>
+          </div><br>
+          <div id="commit" class="commit">
+            <input type="submit" name="submit" id="submit" value="commit">
+      <!--button or html5's datalist-->
+          </div>
+        </form><br><br>
+        {% if result %}
+        <div><h1>Prediction Result:</h1>
+          <span id="result"></span>
+        </div>
+        {% endif %}
+        <br>
+      </div>
+      <h2>
+      <div>
+        {% for item in result %}
+        {{ item }} : {{result[item][0]}} <br>
+        {% endfor %}
+      </div>
+    </h2>
+
+    </div>
+</body>
+</html>
